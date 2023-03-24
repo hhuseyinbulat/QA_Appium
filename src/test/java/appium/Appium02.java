@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Appium01 {
+public class Appium02 {
 
     @Test
     public void test() throws MalformedURLException, InterruptedException {
@@ -23,11 +23,12 @@ public class Appium01 {
         //capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\HACI HÜSEYİN\\IdeaProjects\\QA_Appium\\src\\test\\java\\app\\gestureTool.apk");
         capabilities.setCapability("appPackage", "com.davemac327.gesture.tool");
         capabilities.setCapability("appActivity", "com.davemac327.gesture.tool.GestureBuilderActivity");
+        capabilities.setCapability("noReset",true);
 
-        AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
-        driver.findElementById("com.android.permissioncontroller:id/continue_button").click();
-        MobileElement okButton = driver.findElementByXPath("//*[@text='OK']");
-        okButton.click();
+       AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+       //driver.findElementById("com.android.permissioncontroller:id/continue_button").click();
+       //MobileElement okButton = driver.findElementByXPath("//*[@text='OK']");
+       //okButton.click();
         assert driver.findElementById("android:id/title").isDisplayed();
         driver.findElementById("com.davemac327.gesture.tool:id/addButton").click();
         Thread.sleep(2000);
